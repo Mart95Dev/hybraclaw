@@ -111,14 +111,7 @@ cat > "$HYBRACLAW_STATE/openclaw.json" << JSONEOF
           "capDrop": ["ALL"],
           "tmpfs": ["/tmp", "/var/tmp", "/run"],
           "pidsLimit": 256,
-          "memory": "512m",
-          "blockedMounts": [
-            "$HYBRACLAW_STATE/.env",
-            "$HOME/.claude/.credentials.json",
-            "/root/.claude",
-            "/etc/shadow",
-            "/etc/passwd"
-          ]
+          "memory": "512m"
         }
       },
       "subagents": {
