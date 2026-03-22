@@ -181,13 +181,22 @@ Keep OpenRouter as a fallback for when the Max token expires:
           "capDrop": ["ALL"],
           "tmpfs": ["/tmp", "/var/tmp", "/run"],
           "pidsLimit": 256,
-          "memory": "512m"
+          "memory": "512m",
+          "blockedMounts": [
+            "/home/your-user/.hybraclaw/.env",
+            "/home/your-user/.claude/.credentials.json",
+            "/root/.claude",
+            "/etc/shadow",
+            "/etc/passwd"
+          ]
         }
       }
     }
   }
 }
 ```
+
+The `blockedMounts` prevents agents from reading sensitive files even if they have workspace access. This mirrors NanoClaw's `.env` shadow mechanism — agents cannot access API keys, OAuth credentials, or system passwords.
 
 ### Recommended subagent limits
 
